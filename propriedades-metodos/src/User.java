@@ -2,10 +2,10 @@ public class User {
 
 
     private boolean isLogged;
-    private String firstName;
-    private String lastName;
-    private String fullName;
-    private Adress adress;
+    public String firstName;
+    public String lastName;
+    public String fullName;
+    public Adress adress;
 
 
     public String getFullName(){
