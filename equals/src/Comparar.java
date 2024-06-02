@@ -38,5 +38,12 @@ public class Comparar {
             System.out.println(nomes.isEmpty());
 
             System.out.println(nomes.contains("Nome 23"));
+
+            System.out.println(nomes.size());
+
+            nomes.clear();
+
+            System.out.println(nomes.size());
+            System.out.println(nomes.isEmpty());
     }
 }
