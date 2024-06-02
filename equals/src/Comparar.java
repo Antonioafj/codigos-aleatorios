@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Comparar {
     public static void main(String[] args)  {
@@ -11,11 +13,30 @@ public class Comparar {
        // System.out.println(numbersA + " " + numbersB);
        // System.out.println(Arrays.equals(numbersA, numbersB));
 
-       String[] nomes = new String[10];
-       Arrays.fill(nomes, "Desconhecidos");
+       //String[] nomes = new String[10];
+       //Arrays.fill(nomes, "Desconhecidos");
 
-       System.out.println(Arrays.toString(nomes));
+       //System.out.println(Arrays.toString(nomes));
 
+       List<String> nomes = new ArrayList<>();
 
+            nomes.add("Nome 1");
+            nomes.add("Nome 2");   
+            nomes.add("Nome 3");
+            nomes.add("Nome 4");
+            nomes.add("Nome 5");
+
+            for(int i = 0; i < nomes.size(); i++){
+                System.out.println(nomes.get(i));
+            }
+
+            int index = nomes.indexOf("Nome 3");
+            System.out.println(index);
+
+            System.out.println(nomes.indexOf("Nome 4"));
+
+            System.out.println(nomes.isEmpty());
+
+            System.out.println(nomes.contains("Nome 23"));
     }
 }
