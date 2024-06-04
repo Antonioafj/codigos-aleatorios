@@ -3,16 +3,15 @@ public class User {
     private String firtName;
     private String lastName;
 
-    private int count;
+    private static int count = 0;
 
 
     public User(String firtName, String lastName) {
         this.firtName = firtName;
         this.lastName = lastName;
+        count = count + 1;
     }
-    public void setCount(int count) {
-        this.count = count;
-    }
+   
     
     public int getCount() {
         return count;

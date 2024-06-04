@@ -3,15 +3,10 @@ public class App {
 
         User antonio = new User("Antonio", "Alves");
         User cesar = new User("Cesar", "Augusto");
+        User jao = new User("jao", "lucas");
       
-        antonio.setCount(1);
-        antonio.setCount(1);
-        antonio.setCount(1);
-        
-        cesar.setCount(2);
-        cesar.setCount(2);
-        cesar.setCount(2);
-        
+       
+
         System.out.println(antonio.getCount());
         System.out.println(cesar.getCount());
 
