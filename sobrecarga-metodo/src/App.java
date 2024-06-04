@@ -1,17 +1,21 @@
 public class App {
     public static void main(String[] args) throws Exception {
 
-        User userA = new User("Antonio", "Alves");
-        User userB = new User("Antonio", "Alves");
+        User antonio = new User("Antonio", "Alves");
+        User cesar = new User("Cesar", "Augusto");
+      
+        antonio.setCount(1);
+        antonio.setCount(1);
+        antonio.setCount(1);
+        
+        cesar.setCount(2);
+        cesar.setCount(2);
+        cesar.setCount(2);
+        
+        System.out.println(antonio.getCount());
+        System.out.println(cesar.getCount());
 
-       //System.out.println(userA.output());
-        //System.out.println(userA.output(false));
-
-        System.out.println(userA);
-        System.out.println(userA.hashCode());
-        System.out.println(userB);
-        System.out.println(userB.hashCode());
-        System.out.println(userA.equals(userB));
+        
 
     }
 

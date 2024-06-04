@@ -3,9 +3,19 @@ public class User {
     private String firtName;
     private String lastName;
 
+    private int count;
+
+
     public User(String firtName, String lastName) {
         this.firtName = firtName;
         this.lastName = lastName;
+    }
+    public void setCount(int count) {
+        this.count = count;
+    }
+    
+    public int getCount() {
+        return count;
     }
 
     public String getFirtName() {
