@@ -36,9 +36,31 @@ public class User {
         return firtName.toUpperCase();
         
     }
-    public String toString(){
-        return "User { " +
-                " Firstname = " + firtName + "," + " Lastname = " + lastName + "}";
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((firtName == null) ? 0 : firtName.hashCode());
+        return result;
     }
- 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        if (firtName == null) {
+            if (other.firtName != null)
+                return false;
+        } else if (!firtName.equals(other.firtName))
+            return false;
+        return true;
+    }
+
+    
 }
