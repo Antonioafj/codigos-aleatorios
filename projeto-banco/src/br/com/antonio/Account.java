@@ -42,6 +42,10 @@ public class Account {
                
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
     @Override
     public String toString() {
         String result = "A conta " + this.name + " " + this.ag + " / " + this.cc + " possui : R$ " + balance;
