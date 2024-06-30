@@ -7,10 +7,10 @@ public class App {
 
         //area.areaFoCircle();
 
-        area.areaOfTriangle();
+        //area.areaOfTriangle();
         
-
-
-
+        //area.AreaOfisocelesTriangle();
+        
+        area.areaofEquilateralTriangle();
     }
 }
