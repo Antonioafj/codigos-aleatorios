@@ -7,6 +7,9 @@ public class AreaTrigonometrica {
     double h;
     double r;
     double a;
+    double l;
+    double perimeter;
+    double volume;
 
     public double getArea() {
         return area;
@@ -50,5 +53,45 @@ public class AreaTrigonometrica {
         a = s.nextDouble();
         area = (Math.sqrt(a)/4)*(a*a);
         System.out.println("Area of Triangle is: " + area);
+
     }
+    public void areaOfRetangle(){
+        System.out.println("Enter the length: ");
+         l = s.nextDouble();
+         System.out.println("Enter the breath: ");
+         b = s.nextDouble();   
+        double area = l*b;
+        System.out.println("Area of Rectanle is: "+ area);
+    }
+
+    public void perimeterOfRectangle(){
+        System.out.println("Enter the length of the Rectangle");
+        l = s.nextDouble();
+        System.out.println("Enter the width of the Rectangle");
+        b = s.nextDouble();
+
+        perimeter = 2*(l+b);
+
+        System.out.println("pperimeter of Rectangle is: " + perimeter);
+
+
+    }
+
+    public void perimeterOfSquare(){
+
+        System.out.println("Enter the side of the square: ");
+        a = s.nextDouble();
+        perimeter = 4*a;
+        System.out.println("Perimeter of Square is : " + perimeter);
+
+    }
+
+    public void volumeOfSphere(){
+
+        System.out.println( "Enter the radius of sphere: ");
+        r = s.nextDouble();
+        volume = (4*22*r*r*r)/(3*7);
+        System.out.println("Volume is: " + volume);
+    }
+
 }
