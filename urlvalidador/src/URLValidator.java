@@ -1,23 +1,32 @@
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class URLValidator {
     public static void main(String[] args) throws Exception {
 
-        String url ="https://www.google.com.br";
+        String urlName ="https://www.melelaco.com.br/";
 
-        if (urlValidator(url)) {
+        if (urlValidator(urlName)) {
 
-            System.out.println("La url dada " + url + " es valida" );
+            System.out.println("La url dada " + urlName + " es valida" );
             
         }else
 
-        System.out.println("La url dada " + url + " no es valida");
+        System.out.println("La url dada " + urlName + " no es valida");
     }
 
-    public static boolean urlValidator(String url){
-
-        URL validator = new URL(url).toURI();
+    public static boolean urlValidator(String urlName){
         
-        return validator.isValid(url); 
+       try {
+      HttpURLConnection.setFollowRedirects(false);
+      HttpURLConnection con =
+         (HttpURLConnection) new URL(urlName).openConnection();
+      con.setRequestMethod("HEAD");
+      return (con.getResponseCode() == HttpURLConnection.HTTP_OK);
+    }
+    catch (Exception e) {
+       e.printStackTrace();
+       return false;
+    }
     }
 }
