@@ -41,4 +41,23 @@ public class ProductController {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<ProductDTO> update(@PathVariable("id") Long id,
+                                             @RequestBody @Valid ProductDTO request){
+
+        Optional<ProductDTO> response = service.update(id, request);
+        if (response.isPresent()){
+            return ResponseEntity.ok(response.get());
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> inactive(@PathVariable("id") Long id){
+        boolean inactive = service.inactive(id);
+        return inactive
+                ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
