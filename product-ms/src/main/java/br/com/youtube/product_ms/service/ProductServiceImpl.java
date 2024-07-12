@@ -23,6 +23,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Optional<ProductDTO> create(ProductDTO request) {
+        request.setAvailable(true);
         Product product = mapper.map(request, Product.class);
         repository.saveAndFlush(product);
 
@@ -49,16 +50,6 @@ public class ProductServiceImpl implements ProductService{
         return product.map(value -> mapper.map(value, ProductDTO.class));
     }
 
-    @Override
-    public boolean inactive(Long id) {
-        Optional<Product> product = repository.findById(id);
-        if (product.isPresent()){
-            product.get()
-                    .setAvailable(false);
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public Optional<ProductDTO> update(Long id, ProductDTO request) {
@@ -70,5 +61,17 @@ public class ProductServiceImpl implements ProductService{
              return Optional.of(mapper.map(product.get(), ProductDTO.class));
          }
         return Optional.empty();
+    }
+
+    @Override
+    public boolean inactive(Long id) {
+        Optional<Product> product = repository.findById(id);
+        if (product.isPresent()){
+            product.get()
+                    .setAvailable(false);
+            repository.save(product.get());
+            return true;
+        }
+        return false;
     }
 }

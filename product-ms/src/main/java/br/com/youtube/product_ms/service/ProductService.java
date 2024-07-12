@@ -13,9 +13,9 @@ public interface ProductService {
 
         Optional<ProductDTO> getById(Long id);
 
-
+        Optional<ProductDTO> update(Long id, ProductDTO request);
 
         boolean inactive(Long id);
 
-        Optional<ProductDTO> update(Long id, ProductDTO request);
+
 }

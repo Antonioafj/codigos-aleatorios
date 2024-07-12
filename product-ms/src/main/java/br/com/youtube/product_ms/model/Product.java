@@ -23,7 +23,7 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "price")
+    @Column(name = "available")
     private boolean available;
 
 }
