@@ -42,7 +42,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    @PostMapping("/{id}")
+    @PutMapping ("/{id}")
     public ResponseEntity<ProductDTO> update(@PathVariable("id") Long id,
                                              @RequestBody @Valid ProductDTO request){
 
