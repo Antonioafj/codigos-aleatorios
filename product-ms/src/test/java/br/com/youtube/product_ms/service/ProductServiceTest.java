@@ -1,34 +1,38 @@
 package br.com.youtube.product_ms.service;
 
+import br.com.six2six.fixturefactory.Fixture;
+import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 import br.com.youtube.product_ms.dto.ProductDTO;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"classpath:clear-database.sql"})
 public class ProductServiceTest {
 
     @Autowired
     private ProductService service;
 
-    private ProductDTO request;
 
-    @BeforeEach
-    public  void setUp() {
-        request = new ProductDTO();
-        request.setName("Iphone 14 Pro Max");
-        request.setDescription("Celular de últimma geração e tals. Parte da frente com Ceramic Shield, Parte de trás com vidro e estrutura de alumínio ");
-        request.setPrice(13654.99);
+    @BeforeAll
+    public static void setUp() {
+        FixtureFactoryLoader.loadTemplates("br.com.youtube.product_ms.fixture");
     }
 
     @Test
     public void shouldCreateProduct() {
+
+        ProductDTO request = Fixture.from(ProductDTO.class).gimme("valid");
 
         Optional<ProductDTO> response = service.create(request);
 
@@ -37,5 +41,18 @@ public class ProductServiceTest {
         assertEquals(request.getDescription(), response.get().getDescription());
         assertEquals(request.getPrice(), response.get().getPrice());
         assertTrue(response.get().isAvailable());
+    }
+
+    @Test
+    public void shouldGetAllProducts() {
+        ProductDTO request = Fixture.from(ProductDTO.class).gimme("valid");
+        Optional<ProductDTO> response = service.create(request);
+        List<ProductDTO> responses = service.getAll();
+
+        assertNotNull(responses);
+        assertEquals(responses.get(0).getName(), response.get().getName());
+        assertEquals(responses.get(0).getDescription(), response.get().getDescription());
+        assertEquals(responses.get(0).getPrice(), response.get().getPrice());
+
     }
 }
