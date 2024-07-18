@@ -42,5 +42,37 @@ public class DoublyLinkedList<T> {
         n2.setPrev(newNode);
         size++;
     }
+    public void remveFirst() {
+        if (isEmpty()) return;
+        remove(first.getNext());
+    }
 
-}
+
+    public void removeLast() {
+        if (isEmpty()) return; {
+            remove(last.getPrev());
+        }
+    }
+
+    private void remove(DNode<T> n) {
+        DNode<T> prev = n.getPrev();
+        DNode<T> next = n.getNext();
+        prev.setNext(next);
+        next.setPrev(prev);
+        size--;
+     }
+
+     public String toString() {
+        String str = "{";
+        DNode<T> cur = first.getNext();
+        for (int i =0; i < size; i++)  {
+            str += cur.getValue();
+            cur = cur.getNext();
+            if ( cur != last) str += ",";
+            }
+            str += "}";
+            return str;
+        }
+
+     }
+
