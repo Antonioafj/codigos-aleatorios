@@ -23,7 +23,7 @@ public class BSTMap<K extends  Comparable<? super K>, V> {
         root = null;
     }
 
-    private int size() {
+    public int size() {
         return size(root);
     }
 
@@ -89,7 +89,7 @@ public class BSTMap<K extends  Comparable<? super K>, V> {
         return list;
     }
 
-    private void keys(BSTMap<K, V> n, LinkedList<K> l) {
+    private void keys(BSTMapNode<K, V> n, LinkedList<K> l) {
         if (n == null) return;
         keys(n.getLeft(), l);
         l.addLast(n.getKey());
