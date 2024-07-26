@@ -8,7 +8,7 @@ public class BSTNode <T extends Comparable<? super T>>{
     private BSTNode<T> right;
 
 
-    BSTNode(T v, BSTNode<T>l, BSTNode<T> r) {
+    BSTNode(T v, BSTNode<T> l, BSTNode<T> r) {
         value = v;
         left = l; 
         right = r;
